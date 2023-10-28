@@ -22,6 +22,12 @@
 \usepackage{fontawesome}
 \input{glyphtounicode}
 
+\definecolor{link}{RGB}{56, 118, 191}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=link,
+    urlcolor=link,
+}
 
 %---------- FONT OPTIONS ----------
 % sans-serif
@@ -76,7 +82,7 @@
     \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
     \textbf{#1} & #2 \\
-    \textit{\small#3} & \textit{\small #4} \\
+    \textit{\small #3} & \textit{\small #4} \\
     \end{tabular*}\vspace{-7pt}
 }
 
@@ -84,7 +90,7 @@
 \newcommand{\resumeSubSubheading}[2]{
     \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-        \textit{\small#1} & \textit{\small #2} \\
+        \textit{\small #1} & \textit{\small #2} \\
     \end{tabular*}\vspace{-7pt}
 }
 
@@ -93,16 +99,22 @@
     \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
         \textbf{#1} & #2 \\
-        \textit{\small#3} & \textit{\small #4} \\
-        \textit{\small#5} & \textit{\small #6} \\
-    \end{tabular*}\vspace{-5pt}
+        \textit{\small #3} & \textit{\small #4} \\
+        \textit{\small #5} & \textit{\small #6} \\
+    \end{tabular*}\vspace{-7pt}
 }
 
+\newcommand{\resumeTutorHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{\small #1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
 
 \newcommand{\resumeProjectHeading}[2]{
     \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-        \small#1 & #2 \\
+        #1 & #2 \\
     \end{tabular*}\vspace{-7pt}
 }
 
@@ -110,8 +122,8 @@
 \newcommand{\resumeOrganizationHeading}[4]{
     \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-        \textbf{#1} & \textit{\small #2} \\
-        \textit{\small#3}
+        \textbf{#1} & \textit{#2} \\
+        \textit{\small #3} & \textit{\small #4}
     \end{tabular*}\vspace{-7pt}
 }
 
@@ -122,10 +134,9 @@
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-7pt}}
 
-%-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%---------- RESUME STARTS HERE ----------
 \begin{document}
 
 %---------- HEADING ----------
@@ -135,9 +146,9 @@
     \small
     \faMobile \hspace{.5pt} \href{tel:18582149131}{+1 858 214 9131}
     $|$
-    \faAt \hspace{.5pt} \href{mailto:yuz049@ucsd.edu}{yuz049@ucsd.edu}
+    \faEnvelope \hspace{.5pt} \href{mailto:yuz049@ucsd.edu}{yuz049@ucsd.edu}
     $|$
-    \faLinkedinSquare \hspace{.5pt} \href{https://www.linkedin.com/in/yutong-zhang-3137631a9/}{LinkedIn}
+    \faGraduationCap \hspace{.5pt} \href{https://scholar.google.com/citations?user=wuaUYbYAAAAJ&hI}{Google Scholar}
     $|$
     \faGithub \hspace{.5pt} \href{https://github.com/TonyZYT2000}{GitHub}
     $|$
@@ -149,9 +160,15 @@
 
 \section{Education}
     \vspace{3pt}
-    % \resumeSubHeadingListStart
-
-    % \resumeSubHeadingListEnd
+    \resumeSubHeadingListStart
+        \resumeEducationHeading
+            {University of California San Diego}
+            {La Jolla, USA}
+            {M.S. in Computer Science; \textbf{GPA: 4.00/4.00}}
+            {Sep. 2022 \textbf{--} Expected Jun. 2024}
+            {B.S. in Computer Science and Mathematics; \textbf{GPA: 3.95/4.00}}
+            {Sep. 2018 \textbf{--} Jun. 2022}
+    \resumeSubHeadingListEnd
 
 
 
@@ -159,9 +176,38 @@
 
 \section{Research Experience}
     \vspace{3pt}
-    % \resumeSubHeadingListStart
-
-    % \resumeSubHeadingListEnd
+    \resumeSubHeadingListStart
+        \resumeSubheading{Advanced Robotics and Contorls Lab}
+        {La Jolla, USA}
+        {Student Researcher, advised by Prof. Michael Yip}
+        {Mar. 2021 \textbf{--} present}
+        \resumeItemListStart
+            \resumeItem{
+                Developed a visualization program in C++ and OpenGL to visualize threads,
+                ropes and robot arms.
+            }
+            \resumeItem{
+                Implemented modules to synchronize robot joint status from ROS topics to the
+                visualization program.
+            }
+            \resumeItem{
+                Created a differentiable PBD (position based dynamics) simulator for
+                deformable objects in Python \& PyTorch.
+            }
+            \resumeItem{
+                Applied the differentiable simulator to cloth manipulation and
+                real-to-sim modeling of soft tissue manipulation.
+            }
+            % \resumeItem{
+            %     Formulated the cloth manipulation task as a trajectory optimization problem
+            %     constrained by safety thresholds, and replayed result trajectories on DvRK robot.
+            % }
+            % \resumeItem{
+            %     Currently extending the simulator to support fluid \& articulated object,
+            %     and accelerating it with NVIDIA Warp.
+            % }
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
 
 
 
@@ -169,9 +215,26 @@
 
 \section{Publications}
     \vspace{3pt}
-    % \resumeSubHeadingListStart
+    $^\dagger$ equal contribution
+    \resumeSubHeadingListStart
+        \resumeSubItem{
+            {[1]} \textbf{Yutong Zhang}$^\dagger$, Fei Liu$^\dagger$, Xiao Liang, and Michael Yip.
+            Achieving Autonomous Cloth Manipulation with Optimal Control via Differentiable Physics-Aware Regularization and Safety Constraints.
+            \textit{IEEE International Conference on Robotics and Automation (ICRA), 2024}.
+            \textit{\textbf{\textcolor{red}{Under Review}}}\hspace{.5pt}
+            \href{https://arxiv.org/pdf/2309.11655.pdf}
+            {\faFilePdfO \hspace{.5pt} [arXiv]}.
+        }
 
-    % \resumeSubHeadingListEnd
+        \resumeSubItem{
+            {[2]} Fei Liu$^\dagger$, Xiao Liang$^\dagger$, \textbf{Yutong Zhang}, Yuelei Li, Shan Lin, and Michael C. Yip.
+            Real-to-Sim Deformable Object Manipulation: Optimizing Physics Models with Residual Mappings for Robotic Surgery.
+            \textit{IEEE International Conference on Robotics and Automation (ICRA), 2024}.
+            \textit{\textbf{\textcolor{red}{Under Review}}}\hspace{.5pt}
+            \href{https://arxiv.org/pdf/2309.11656.pdf}
+            {\faFilePdfO \hspace{.5pt} [arXiv]}.
+        }
+    \resumeSubHeadingListEnd
 
 
 
@@ -179,19 +242,53 @@
 
 \section{Projects}
     \vspace{3pt}
-    % \resumeSubHeadingListStart
+    \resumeSubHeadingListStart
+        % \resumeSubheading{Autonomous Cloth Manipulation}{}{Lead Developer}{}
+        % \resumeItemListStart
+        %     \resumeItem{}
+        % \resumeItemListEnd
 
-    % \resumeSubHeadingListEnd
+        % \resumeSubheading{ARCParticleSim}{}{Co-Developer}{}
+        % \resumeItemListStart
+        %     \resumeItem{}
+        % \resumeItemListEnd
 
+        \resumeSubheading{The Meoze Runner}
+        {\href{https://cse125.ucsd.edu/2022/cse125g4/blog/}
+        {\faExternalLinkSquare \hspace{.5pt} Homepage},
+        \href{https://github.com/ucsd-cse125-sp22/cse125-sp22-group4}
+        {\faGithub \hspace{.5pt} Code}}
+        {Graphics Developer}{}
+        \resumeItemListStart
+            \resumeItem{Developed a multiplayer 3D game in C++ and OpenGL with 6 fellow teammates.}
+            \resumeItem{Worked on graphics modules to manage mesh data and render with texture mapping.}
+            \resumeItem{Implemented an efficient 2D OBB (oriented bounding box) collision checking utility for the game server.}
+            \resumeItem{Wrote Python scripts to export collision data from level designs done in Blender to the game server.}
+        \resumeItemListEnd
 
+        \resumeSubheading{Monte Carlo Path Tracer}
+        {\href{https://tonyzyt2000.github.io/en/tags/CSE168/}
+        {\faFileText \hspace{.5pt} Report}}
+        {Developer}{}
+        \resumeItemListStart
+            \resumeItem{Developed a Monte Carlo Path Tracer in C++.}
+            \resumeItem{Wrote vairous BRDFs including Phong model, GGX microfacet model and Disney Principled BRDF.}
+            \resumeItem{Implemented Russian Roulette techniques and MIS (multiple importance sampling) to reduce noises.}
+            \resumeItem{Extended a Photon Mappiong pass to produce better caustics for transparent objects.}
+        \resumeItemListEnd
 
-%----------- SKILLS -----------
-
-\section{Skills}
-    \vspace{2pt}
-    % \resumeSubHeadingListStart
-
-    % \resumeSubHeadingListEnd
+        \resumeSubheading{Ready Set Cook}
+        {\href{https://www.youtube.com/watch?v=sPXOgPXvtEg}
+        {\faYoutubePlay \hspace{.5pt} Video},
+        \href{https://github.com/TonyZYT2000/ready_set_cook}
+        {\faGithub \hspace{.5pt} Code}}
+        {Project Manager}{}
+        \resumeItemListStart
+            \resumeItem{Led a team of 10 students with different backgrounds and skills.}
+            \resumeItem{Developed a smart recipe mobile application using Fierbase and Flutter SDK.}
+            \resumeItem{Followed agile development practice with weekly meetings, code reviews and detailed design documents.}
+        \resumeItemListEnd
+    \resumeSubHeadingListEnd
 
 
 
@@ -199,9 +296,35 @@
 
 \section{Tutoring Experience}
     \vspace{3pt}
-    % \resumeSubHeadingListStart
+    \resumeSubHeadingListStart
+        \resumeTutorHeading{UC San Diego, CSE 167 Computer Graphics}
+        {Jan. 2022 \textbf{--} Mar. 2022}
+        \resumeTutorHeading{UC San Diego, CSE 105 Theory of Computation}
+        {Mar. 2021 \textbf{--} Jun. 2021}
+    \resumeSubHeadingListEnd
 
-    % \resumeSubHeadingListEnd
+
+
+%----------- SKILLS -----------
+
+\section{Skills}
+    \vspace{3pt}
+    \resumeSubHeadingListStart
+        \small{\item{
+            \textbf{Programming Languages:}
+            {\textit{\textbf{Experienced in}} C, C++, Python;
+            \textit{\textbf{Familiear with}} MATLAB, Java, Scheme } \\
+            \vspace{3pt}
+
+            \textbf{Frameworks \& Libraries:}
+            {CUDA, Eigen, OpenGL, ImGui, Warp, NumPy, SciPy, PyTorch, Open3D, PyVista} \\
+            \vspace{3pt}
+
+            \textbf{Software Tools:}
+            {Git, ROS, Bash, Linux, CMake, Docker, LaTeX, Blender, Houdini} \\
+            \vspace{3pt}
+        }}
+    \resumeSubHeadingListEnd
 
 
 
