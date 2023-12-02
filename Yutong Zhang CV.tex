@@ -20,6 +20,7 @@
 \usepackage{tabularx}
 \usepackage{hyphenat}
 \usepackage{fontawesome}
+\usepackage[margin=1.0in]{geometry}
 \input{glyphtounicode}
 
 \definecolor{link}{RGB}{56, 118, 191}
@@ -48,11 +49,11 @@
 \renewcommand{\footrulewidth}{0pt}
 
 % Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
+% \addtolength{\oddsidemargin}{-0.5in}
+% \addtolength{\evensidemargin}{-0.5in}
+% \addtolength{\textwidth}{1.0in}
+% \addtolength{\topmargin}{-0.5in}
+% \addtolength{\textheight}{1.0in}
 
 \urlstyle{same}
 
@@ -62,7 +63,7 @@
 
 % Sections formatting
 \titleformat{\section}{
-    \vspace{-4pt}\scshape\raggedright\large
+    \vspace{-5pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
 % Ensure that generate pdf is machine readable/ATS parsable
@@ -73,7 +74,7 @@
 
 \newcommand{\resumeItem}[1]{
     \item\small{
-        {#1 \vspace{-2pt}}
+        {#1 \vspace{-1.5pt}}
     }
 }
 
@@ -95,12 +96,11 @@
 }
 
 
-\newcommand{\resumeEducationHeading}[6]{
+\newcommand{\resumeEducationHeading}[4]{
     \vspace{-2pt}\item
     \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
         \textbf{#1} & #2 \\
-        \textit{\small #3} & \textit{\small #4} \\
-        \textit{\small #5} & \textit{\small #6} \\
+        \textit{\small #3} & \textit{\small #4}
     \end{tabular*}\vspace{-7pt}
 }
 
@@ -127,11 +127,11 @@
     \end{tabular*}\vspace{-7pt}
 }
 
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-2pt}}
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-7pt}}
@@ -151,7 +151,6 @@
     \faGraduationCap \hspace{.5pt} \href{https://scholar.google.com/citations?user=wuaUYbYAAAAJ&hI}{Google Scholar}
     $|$
     \faGithub \hspace{.5pt} \href{https://github.com/TonyZYT2000}{GitHub}
-    $|$
 \end{center}
 
 
@@ -165,7 +164,10 @@
             {University of California San Diego}
             {La Jolla, USA}
             {M.S. in Computer Science; \textbf{GPA: 4.00/4.00}}
-            {Sep. 2022 \textbf{--} Expected Jun. 2024}
+            {Sep. 2022 \textbf{--} present}
+        \resumeEducationHeading
+            {University of California San Diego}
+            {La Jolla, USA}
             {B.S. in Computer Science and Mathematics; \textbf{GPA: 3.95/4.00}}
             {Sep. 2018 \textbf{--} Jun. 2022}
     \resumeSubHeadingListEnd
@@ -175,9 +177,9 @@
 %----------- RESEARCH INTEREST -----------
 \section{Research Interest}
     \vspace{3pt}
-    My current research focuses on applying differentiable physics simulation to deformable object manipulation in robotics.
-    I have a broader interest in autonomous robot manipulation through optimization and computational physics,
-    along with a strong curiosity about integrating data-driven learning techniques for enhanced robustness.
+    My current research experience focuses on modeling deformable objects with differentiable physics simulation.
+    I have a broad interest in autonomous robot manipulation through optimization and an intense curiosity about integrating data-driven learning techniques for enhanced robustness.
+    I want to explore using differentiable programming as an efficient tool for developing computational algorithms for various robotics applications.
 
 
 
@@ -192,16 +194,16 @@
         {Mar. 2021 \textbf{--} present}
         \resumeItemListStart
             \resumeItem{
-                Developed a visualization program in C++ and OpenGL to visualize threads,
-                ropes and robot arms.
+                Developed visualization tools in C++ and OpenGL to visualize threads,
+                ropes, and robot arms.
             }
             \resumeItem{
-                Implemented modules to synchronize robot joint status from ROS topics to the
+                Wrote modules to synchronize robot joint status from ROS topics to the
                 visualization program.
             }
             \resumeItem{
-                Created a differentiable PBD (position based dynamics) simulator for
-                deformable objects in Python \& PyTorch.
+                Created a differentiable position-based dynamics simulator for
+                thin-shell, volumetric, and rope-like deformable objects in Python and PyTorch.
             }
             \resumeItem{
                 Applied the differentiable simulator to autonoumous cloth manipulation.
@@ -209,14 +211,13 @@
                 to prevent undesired collision.
             }
             \resumeItem{
-                Collaborated on the real-to-sim problem of soft tissue manipulation in robot surgery.
+                Collaborated on the real-to-sim problem of modeling soft tissues in robot surgery.
                 Utilized the differentiable simulator for online optimization of physical parameters
-                to better model soft tissue under actuation.
+                to reduce the error.
             }
-            % \resumeItem{
-            %     Currently extending the simulator to support fluid \& articulated object,
-            %     and accelerating it with NVIDIA Warp.
-            % }
+            \resumeItem{
+                Currently parallelizing the simulator with the NVIDIA Warp library to accelerate the computation.
+            }
         \resumeItemListEnd
     \resumeSubHeadingListEnd
 
@@ -225,14 +226,13 @@
 %----------- PUBLICATIONS -----------
 
 \section{Publications}
-    \vspace{3pt}
     $^\dagger$ equal contribution
-    \vspace{-7pt}
+    \vspace{-5pt}
     \resumeSubHeadingListStart
         \resumeSubItem{
             {[1]} \textbf{Yutong Zhang}$^\dagger$, Fei Liu$^\dagger$, Xiao Liang, and Michael Yip.
-            Achieving Autonomous Cloth Manipulation with Optimal Control via Differentiable Physics-Aware Regularization and Safety Constraints.
-            \textit{IEEE International Conference on Robotics and Automation (ICRA), 2024}.
+            Achieving Autonomous Cloth Manipulation with Optimal Control via Differentiable Physics-Aware Regularization and Safety Constraints.\\
+            \textit{IEEE International Conference on Robotics and Automation (ICRA), 2024}.\\
             \textit{\textbf{\textcolor{red}{Under Review}}}\hspace{.5pt}
             \href{https://arxiv.org/pdf/2309.11655.pdf}
             {\faFilePdfO \hspace{.5pt} [arXiv]},
@@ -242,8 +242,8 @@
 
         \resumeSubItem{
             {[2]} Fei Liu$^\dagger$, Xiao Liang$^\dagger$, \textbf{Yutong Zhang}, Yuelei Li, Shan Lin, and Michael C. Yip.
-            Real-to-Sim Deformable Object Manipulation: Optimizing Physics Models with Residual Mappings for Robotic Surgery.
-            \textit{IEEE International Conference on Robotics and Automation (ICRA), 2024}.
+            Real-to-Sim Deformable Object Manipulation: Optimizing Physics Models with Residual Mappings for Robotic Surgery.\\
+            \textit{IEEE International Conference on Robotics and Automation (ICRA), 2024}.\\
             \textit{\textbf{\textcolor{red}{Under Review}}}\hspace{.5pt}
             \href{https://arxiv.org/pdf/2309.11656.pdf}
             {\faFilePdfO \hspace{.5pt} [arXiv]}.
@@ -251,21 +251,27 @@
     \resumeSubHeadingListEnd
 
 
-
 %----------- PROJECTS -----------
-
 \section{Projects}
-    \vspace{3pt}
+    \vspace{2.5pt}
     \resumeSubHeadingListStart
-        % \resumeSubheading{PyPBD}{}{Lead Developer}{}
-        % \resumeItemListStart
-        %     \resumeItem{}
-        % \resumeItemListEnd
-
-        % \resumeSubheading{ARCParticleSim}{}{Co-Developer}{}
-        % \resumeItemListStart
-        %     \resumeItem{}
-        % \resumeItemListEnd
+        \resumeSubheading{Differentiable PBD Simulation}{}{Lead Developer}{}
+        \resumeItemListStart
+            \resumeItem{Developed an end-to-end differentiable position-based simulator for deformable objects in Python.}
+            \resumeItem{Designed several trajectory optimization experiments for cloth manipulation with safety constraints.}
+            \resumeItem{Embedded the simulation into the real-to-sim registration framework to optimize parameters online.}
+            \resumeItem{Combining the framework with articulate body simualtion to uniformly solve robot dynamics.}
+        \resumeItemListEnd
+        \resumeSubheading{ARC Particle Sim}
+        {\href{https://github.com/TonyZYT2000/WorkLog/blob/master/Yutong\%20Zhang.md}
+        {\faFileText \hspace{.5pt} Report}}
+        {Co-Developer}{}
+        \resumeItemListStart
+            \resumeItem{Developed a cross-platform visualization and simulation program in C++ and OpenGL.}
+            \resumeItem{Visualized captured rope data in time sequence with second-order interpolation.}
+            \resumeItem{Designed interactive GUI controls for visualization theme and playback frame rate.}
+            \resumeItem{Implemented modules to synchronize joint angles from ROS topics to visualize the robot arm.}
+        \resumeItemListEnd
 
         \resumeSubheading{The Meoze Runner}
         {\href{https://cse125.ucsd.edu/2022/cse125g4/blog/}
@@ -274,9 +280,9 @@
         {\faGithub \hspace{.5pt} Code}}
         {Graphics Developer}{}
         \resumeItemListStart
-            \resumeItem{Developed a multiplayer 3D game in C++ and OpenGL with 6 fellow teammates.}
+            \resumeItem{Developed a multiplayer 3D game in C++ and OpenGL with 6 teammates.}
             \resumeItem{Worked on graphics modules to manage mesh data and render with texture mapping.}
-            \resumeItem{Implemented an efficient 2D OBB (oriented bounding box) collision checking utility for the game server.}
+            \resumeItem{Implemented an efficient 2D oriented bounding box collision checking utility for the game server.}
             \resumeItem{Wrote Python scripts to export collision data from level designs done in Blender to the game server.}
         \resumeItemListEnd
 
@@ -285,22 +291,10 @@
         {\faFileText \hspace{.5pt} Report}}
         {Developer}{}
         \resumeItemListStart
-            \resumeItem{Developed a Monte Carlo Path Tracer in C++.}
-            \resumeItem{Wrote vairous BRDFs including Phong model, GGX microfacet model and Disney Principled BRDF.}
-            \resumeItem{Implemented Russian Roulette techniques and MIS (multiple importance sampling) to reduce noises.}
-            \resumeItem{Extended a Photon Mappiong pass to produce better caustics for transparent objects.}
-        \resumeItemListEnd
-
-        \resumeSubheading{Ready Set Cook}
-        {\href{https://www.youtube.com/watch?v=sPXOgPXvtEg}
-        {\faYoutubePlay \hspace{.5pt} Video},
-        \href{https://github.com/TonyZYT2000/ready_set_cook}
-        {\faGithub \hspace{.5pt} Code}}
-        {Project Manager}{}
-        \resumeItemListStart
-            \resumeItem{Led a team of 10 students with different backgrounds and skills.}
-            \resumeItem{Developed a smart recipe mobile application using Fierbase and Flutter SDK.}
-            \resumeItem{Followed agile development practice with weekly meetings, code reviews and detailed design documents.}
+            \resumeItem{Developed a Monte Carlo Path Tracer in C++ and the NVIDIA OptiX framework.}
+            \resumeItem{Wrote various BRDFs including Phong model, GGX microfacet model and Disney Principled BRDF.}
+            \resumeItem{Implemented Russian Roulette techniques and multiple importance sampling to reduce noises.}
+            \resumeItem{Extended an additional Photon Mapping pass to produce better caustics for transparent objects.}
         \resumeItemListEnd
     \resumeSubHeadingListEnd
 
@@ -331,7 +325,7 @@
             \vspace{3pt}
 
             \textbf{Frameworks \& Libraries:}
-            {CUDA, Eigen, OpenGL, ImGui, Warp, NumPy, SciPy, PyTorch, Open3D, PyVista} \\
+            {CUDA, Eigen, OpenGL, ImGui, Warp, NumPy, SciPy, PyTorch, PyVista} \\
             \vspace{3pt}
 
             \textbf{Software Tools:}
